@@ -9,7 +9,6 @@
           type="search"
           placeholder="Search"
           aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
       </div>
     </div>
@@ -17,9 +16,11 @@
 <div class="row">
   <div v-for="book in books" :key="book.id" class="col-2">
     <div class="card">
-      <div class="card-header">
-        <img :src="book.cover" alt="cover" class="cover"><p>{{ book.judul }}</p>
+      <NuxtLink :to="`/detail/${book.id}`">
+        <div class="card-header">
+        <img :src="book.cover" alt="Cover" class="Cover">
       </div>
+      </NuxtLink>
     </div>
   </div>
 </div>
@@ -50,7 +51,8 @@ async function getData() {
 </script>
 
 <style scoped>
-.cover{
-  width: 90px;
+.Cover{
+  width: 100%;
 }
 </style>
+
